@@ -1,0 +1,16 @@
+PODS:
+  - FasterVerificationCode (0.1.0)
+
+DEPENDENCIES:
+  - FasterVerificationCode (from `../`)
+
+EXTERNAL SOURCES:
+  FasterVerificationCode:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FasterVerificationCode: 787c86f123013d5f033ad9247ae8da09e4ade020
+
+PODFILE CHECKSUM: ac7c601fa75ab9c927f2c9db77835826487bcae8
+
+COCOAPODS: 1.4.0

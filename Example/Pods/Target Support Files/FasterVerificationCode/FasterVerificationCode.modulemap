@@ -1,0 +1,6 @@
+framework module FasterVerificationCode {
+  umbrella header "FasterVerificationCode-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "FasterVerificationCode",
+  "version": "0.1.0",
+  "summary": "An high customizable and fast verification code view.",
+  "description": "FasterVerificationCode is an, almost, fully customizable verification code input view.\nIt makes easy to your user to insert the verification code you provided via mail/phone.\nIt supports the paste action",
+  "homepage": "https://github.com/posix88/FasterVerificationCode",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Posix88": "amusolino@deloitte.it"
+  },
+  "source": {
+    "git": "https://github.com/Posix88/FasterVerificationCode.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/NinoMusolino",
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "FasterVerificationCode/Classes/**/*"
+}

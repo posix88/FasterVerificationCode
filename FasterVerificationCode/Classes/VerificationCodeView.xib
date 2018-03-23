@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationCodeView" customModule="RunDigital" customModuleProvider="target">
+            <connections>
+                <outlet property="hiddenTextField" destination="Jum-lJ-UyX" id="wgo-uS-us4"/>
+                <outlet property="labelContainer" destination="o9e-xs-uwm" id="Luj-2q-DB6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jum-lJ-UyX" customClass="VerificationCodeTextField" customModule="RunDigital" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-dI-tfA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="o9e-xs-uwm">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="o9e-xs-uwm" secondAttribute="trailing" id="2J0-YF-w1u"/>
+                <constraint firstItem="Jum-lJ-UyX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3qT-Yh-Nh8"/>
+                <constraint firstItem="LFN-dI-tfA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3ss-Qs-w0P"/>
+                <constraint firstItem="o9e-xs-uwm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Grk-yi-FYc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jum-lJ-UyX" secondAttribute="trailing" id="IDa-Oq-TnF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LFN-dI-tfA" secondAttribute="trailing" id="VKg-0R-xx9"/>
+                <constraint firstItem="o9e-xs-uwm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zds-Qw-FAl"/>
+                <constraint firstItem="LFN-dI-tfA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aaf-TP-fn3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Jum-lJ-UyX" secondAttribute="bottom" id="aer-KE-BXP"/>
+                <constraint firstAttribute="bottom" secondItem="o9e-xs-uwm" secondAttribute="bottom" id="bvy-3T-o8U"/>
+                <constraint firstItem="Jum-lJ-UyX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="cdA-ji-enk"/>
+                <constraint firstAttribute="bottom" secondItem="LFN-dI-tfA" secondAttribute="bottom" id="goc-AE-l4Z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="-251"/>
+        </view>
+    </objects>
+</document>
