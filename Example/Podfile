@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FasterVerificationCode_Example' do
+  pod 'FasterVerificationCode', :path => '../'
+
+  target 'FasterVerificationCode_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
