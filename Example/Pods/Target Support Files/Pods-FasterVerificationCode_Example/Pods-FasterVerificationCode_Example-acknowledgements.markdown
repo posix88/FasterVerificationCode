@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## FasterVerificationCode
 
-Copyright (c) 2018 Posix88 <amusolino@deloitte.it>
+Copyright (c) 2018 Antonino Francesco Musolino
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

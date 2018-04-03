@@ -24,14 +24,18 @@ It supports the paste action
                        DESC
 
   s.homepage         = 'https://github.com/posix88/FasterVerificationCode'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Posix88' => 'amusolino@deloitte.it' }
+  s.author           = { 'Posix88' => 'ninomusolino@gmail.com' }
   s.source           = { :git => 'https://github.com/Posix88/FasterVerificationCode.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/NinoMusolino'
 
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'FasterVerificationCode/Classes/**/*'
+  s.resource_bundles = {
+	  'FasterVerificationCode' => ['FasterVerificationCode/Classes/*.xib']
+  }
+  s.framework  = "UIKit"
+  s.requires_arc = true
   
 end

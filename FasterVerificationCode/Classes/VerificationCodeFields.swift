@@ -6,7 +6,7 @@
 
 import UIKit
 
-class VerificationCodeLabel: UILabel
+public class VerificationCodeLabel: UILabel
 {
     private var isBordered: Bool = true
 	
@@ -31,7 +31,7 @@ class VerificationCodeLabel: UILabel
         super.init(frame: frame)
     }
 
-    required init?(coder aDecoder: NSCoder)
+	required public init?(coder aDecoder: NSCoder)
     {
         fatalError("init(coder:) has not been implemented")
     }
@@ -69,7 +69,7 @@ class VerificationCodeLabel: UILabel
         layer.addSublayer(bottomBorder!)
     }
 
-    override func layoutSubviews()
+	override public func layoutSubviews()
     {
         super.layoutSubviews()
         if isBordered
@@ -97,9 +97,9 @@ class VerificationCodeLabel: UILabel
     }
 }
 
-class VerificationCodeTextField: UITextField
+public class VerificationCodeTextField: UITextField
 {
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool
+	override public func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool
     {
         if action == #selector(UIResponderStandardEditActions.paste(_:))
         {

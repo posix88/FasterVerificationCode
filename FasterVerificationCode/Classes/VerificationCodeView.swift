@@ -4,7 +4,7 @@
 //  Created by Musolino, Antonino Francesco on 02/03/2018.
 //
 
-@objc protocol VerificationCodeViewDelegate: class
+@objc public protocol VerificationCodeViewDelegate: class
 {
 	func verificationCodeInserted(_ text: String, isComplete: Bool)
 	@objc optional func verificationCodeChanged()
@@ -12,7 +12,7 @@
 
 import UIKit
 
-class VerificationCodeView: UIView
+public class VerificationCodeView: UIView
 {
 
     @IBOutlet private weak var labelContainer: UIStackView!
@@ -73,7 +73,7 @@ class VerificationCodeView: UIView
 	/// If true, the textfield become first responder during initialization
 	open var focusOnLoad: Bool = false
 
-	weak var delegate: VerificationCodeViewDelegate?
+	public weak var delegate: VerificationCodeViewDelegate?
 
     /// Labels inserted into the StackView
     fileprivate var labels: [VerificationCodeLabel] = []
@@ -94,7 +94,7 @@ class VerificationCodeView: UIView
         super.init(frame: frame)
     }
 
-    required init?(coder aDecoder: NSCoder)
+	required public init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         guard
@@ -122,13 +122,13 @@ class VerificationCodeView: UIView
         hiddenTextField.keyboardType = isNumeric ? .numberPad : .default
     }
 
-    override func awakeFromNib()
+	override public func awakeFromNib()
     {
         super.awakeFromNib()
         hiddenTextField.delegate = self
     }
 
-    func setLabelNumber(_ numberOfLabel: Int)
+    public func setLabelNumber(_ numberOfLabel: Int)
     {
         guard numberOfLabel > 0
         else
@@ -192,13 +192,13 @@ class VerificationCodeView: UIView
 
 extension VerificationCodeView: UITextFieldDelegate
 {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+	public func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()
         return true
     }
 
-	func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
+	public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
 	{
 		stopCurrentCarrierAnimation()
 		guard let text = textField.text
@@ -215,7 +215,7 @@ extension VerificationCodeView: UITextFieldDelegate
 		return true
 	}
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+	public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
         guard let text = textField.text
         else

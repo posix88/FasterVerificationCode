@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import FasterVerificationCode
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
+	@IBOutlet weak var verificationCodeView: VerificationCodeView!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+	{
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+		verificationCodeView.setLabelNumber(6)
+		verificationCodeView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,3 +27,25 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: VerificationCodeViewDelegate
+{
+	func verificationCodeInserted(_ text: String, isComplete: Bool)
+	{
+		if text == "123456"
+		{
+			let alertVC = UIAlertController(title: "FasterVerificationCode", message: "Code Inserted Succesfully", preferredStyle: .alert)
+			let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+			alertVC.addAction(action)
+			self.present(alertVC, animated: true, completion: nil)
+		} else
+		{
+			// CODE IS WRONG
+			verificationCodeView.showError = true
+		}
+	}
+
+	func verificationCodeChanged()
+	{
+		verificationCodeView.showError = false
+	}
+}

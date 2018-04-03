@@ -9,7 +9,7 @@
     "file": "LICENSE"
   },
   "authors": {
-    "Posix88": "amusolino@deloitte.it"
+    "Posix88": "ninomusolino@gmail.com"
   },
   "source": {
     "git": "https://github.com/Posix88/FasterVerificationCode.git",
@@ -19,5 +19,12 @@
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "FasterVerificationCode/Classes/**/*"
+  "source_files": "FasterVerificationCode/Classes/**/*",
+  "resource_bundles": {
+    "FasterVerificationCode": [
+      "Classes/**/*.xib"
+    ]
+  },
+  "frameworks": "UIKit",
+  "requires_arc": true
 }
