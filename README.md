@@ -44,9 +44,9 @@ For a complete working example, check out the sample apps included in this repo.
 
 override func viewDidLoad()
 {
-	super.viewDidLoad()
-	verificationCodeView.setLabelNumber(6)
-	verificationCodeView.delegate = self
+super.viewDidLoad()
+verificationCodeView.setLabelNumber(6)
+verificationCodeView.delegate = self
 }
 ```
 ### VerificationCodeViewDelegate
@@ -66,11 +66,11 @@ You can check the inserted text and if the code is wrong you can show a visual e
 ```swift
 if text == "123456"
 {
-	.....
+.....
 } else
 {
-	// CODE IS WRONG
-	verificationCodeView.showError = true
+// CODE IS WRONG
+verificationCodeView.showError = true
 }
 ```
 
@@ -80,7 +80,7 @@ This method is optional and is called only when the user is deleting a character
 ```swift
 func verificationCodeChanged()
 {
-	verificationCodeView.showError = false
+verificationCodeView.showError = false
 }
 ```
 
