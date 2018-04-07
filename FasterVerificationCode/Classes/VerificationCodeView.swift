@@ -30,9 +30,11 @@ public class VerificationCodeView: UIView
 	@IBInspectable
 	open var labelBorderColor: UIColor = .black
 
+	/// The VerificationCodeLabel border color in case of error
 	@IBInspectable
 	open var labelErrorColor: UIColor = .red
 
+	/// The VerificationCodeLabel text color
 	@IBInspectable
 	open var labelTextColor: UIColor = .black
 
@@ -56,8 +58,10 @@ public class VerificationCodeView: UIView
     @IBInspectable
     open var isNumeric: Bool = true
 
+	/// The VerificationCodeLabel font
     open var labelFont: UIFont? = UIFont.systemFont(ofSize: 20)
 
+	/// True if the VerificationCodeLabels have to show the error
 	open var showError: Bool = false
 	{
 		didSet
@@ -86,7 +90,10 @@ public class VerificationCodeView: UIView
 
     private var view: UIView!
 
+	/// The tap gesture that open the keyboard
     private var tapGesture: UITapGestureRecognizer!
+
+	/// The long press gesture that trigger the paste action
     private var longPressGesture: UILongPressGestureRecognizer!
 
     override init(frame: CGRect)
@@ -113,6 +120,7 @@ public class VerificationCodeView: UIView
             self.addSubview(view)
 			self.backgroundColor = .clear
         }
+
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(openKeyboard))
         tapGesture.numberOfTapsRequired = 1
         self.addGestureRecognizer(tapGesture)
@@ -128,6 +136,10 @@ public class VerificationCodeView: UIView
         hiddenTextField.delegate = self
     }
 
+
+    /// The initialization method that size the view and add the labels
+    ///
+    /// - Parameter numberOfLabel: the number of label to be shown
     public func setLabelNumber(_ numberOfLabel: Int)
     {
         guard numberOfLabel > 0
@@ -229,19 +241,23 @@ extension VerificationCodeView: UITextFieldDelegate
 			return false
 		}
 
+		// this is possible only if i've just pasted some text
 		if string.count > 1
         {
-			return codeTextField(textField, handleCopiedText: string)
+			return verificationCodeTextField(textField, handleCopiedText: string)
         }
-
         let newLength = text.count + string.count - range.length
+
+		// I'm adding characters into the textfield
         if newLength <= numberOfLabel && string.count > 0
         {
             stopCurrentCarrierAnimation()
             labels[currentLabel].text = string
             currentLabel += 1
             startCurrentCarrierAnimation()
-        } else if string.count == 0
+        }
+		// I'm deleting characters from the textfield
+		else if string.count == 0
         {
 			delegate?.verificationCodeChanged?()
             if range.length > 1
@@ -290,7 +306,7 @@ extension VerificationCodeView: UITextFieldDelegate
         }
     }
 
-	private func codeTextField(_ textField: UITextField, handleCopiedText string: String) -> Bool
+	private func verificationCodeTextField(_ textField: UITextField, handleCopiedText string: String) -> Bool
 	{
 		stopCurrentCarrierAnimation()
 		currentLabel = 0
@@ -316,17 +332,5 @@ extension VerificationCodeView: UITextFieldDelegate
 			return false
 		}
 		return true
-	}
-
-}
-
-
-extension String
-{
-	var isNumeric: Bool
-	{
-		guard self.count > 0 else { return false }
-		let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-		return Set(self).isSubset(of: nums)
 	}
 }
