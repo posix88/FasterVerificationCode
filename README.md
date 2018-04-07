@@ -2,12 +2,12 @@
 An high customizable and fast verification code view
 
 [![Version](https://img.shields.io/cocoapods/v/FasterVerificationCode.svg?style=flat)](https://cocoapods.org/pods/FasterVerificationCode)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/posix88/FasterVerificationCode/master/VerificationCodeView.gif)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/posix88/FasterVerificationCode/master/LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/FasterVerificationCode.svg?style=flat)](https://cocoapods.org/pods/FasterVerificationCode)
 
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/posix88/FasterVerificationCode/master/LICENSE" alt="Icon"/>
+<img src="https://raw.githubusercontent.com/posix88/FasterVerificationCode/master/VerificationCodeView.gif" alt="Icon"/>
 </p>
 
 
