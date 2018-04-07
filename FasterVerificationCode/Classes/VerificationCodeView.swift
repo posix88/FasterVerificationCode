@@ -98,7 +98,7 @@ public class VerificationCodeView: UIView
     {
         super.init(coder: aDecoder)
         guard
-            let xib = Bundle.main.loadNibNamed("VerificationCodeView", owner: self, options: nil),
+            let xib = Bundle(for: VerificationCodeView.self).loadNibNamed("VerificationCodeView", owner: self, options: nil),
             let views = xib as? [UIView] else
         {
             return

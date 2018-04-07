@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-FasterVerificationCode is an, almost, fully customizable verification code input view.
+FasterVerificationCode is a fully customizable verification code input view.
 It makes easy to your user to insert the verification code you provided via mail/phone.
 It supports the paste action
                        DESC
