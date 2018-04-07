@@ -45,15 +45,16 @@ For a complete working example, check out the sample apps included in this repo.
 override func viewDidLoad()
 {
 	super.viewDidLoad()
-	verificationCodeView.setLabelNumber(6) //modify this number based on your needs
+	verificationCodeView.setLabelNumber(6)
 	verificationCodeView.delegate = self
 }
 ```
 ### VerificationCodeViewDelegate
 This delegate handle the insertion of the verification code with this two method:
 ```swift
-	func verificationCodeInserted(_ text: String, isComplete: Bool)
-	@objc optional func verificationCodeChanged()
+func verificationCodeInserted(_ text: String, isComplete: Bool)
+
+@objc optional func verificationCodeChanged()
 ```
 #### verificationCodeInserted
 
@@ -63,14 +64,14 @@ It gives you the current text and if the text was inserted totally.
 You can check the inserted text and if the code is wrong you can show a visual error in this way
 
 ```swift
-	if text == "123456"
-	{
-		.....
-	} else
-	{
-		// CODE IS WRONG
-		verificationCodeView.showError = true
-	}
+if text == "123456"
+{
+	.....
+} else
+{
+	// CODE IS WRONG
+	verificationCodeView.showError = true
+}
 ```
 
 #### verificationCodeChanged
