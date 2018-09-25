@@ -115,7 +115,7 @@ public class VerificationCodeView: UIView
         {
             view = views[0]
             view.frame = bounds
-            view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+            view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
             view.backgroundColor = .clear
             self.addSubview(view)
 			self.backgroundColor = .clear
@@ -128,6 +128,9 @@ public class VerificationCodeView: UIView
         longPressGesture.minimumPressDuration = 1
         self.addGestureRecognizer(longPressGesture)
         hiddenTextField.keyboardType = isNumeric ? .numberPad : .default
+        if #available(iOS 12.0, *) {
+            hiddenTextField.textContentType = .oneTimeCode
+        } 
     }
 
 	override public func awakeFromNib()
@@ -175,7 +178,7 @@ public class VerificationCodeView: UIView
         let spaceOfLabels: CGFloat = labelWidth * CGFloat(numberOfLabel)
         let spaceBetweenLabels: CGFloat = numberOfSpace * labelSpacing
         let newWidth: CGFloat = CGFloat(spaceBetweenLabels + spaceOfLabels)
-        let widthConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: newWidth)
+        let widthConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: newWidth)
         self.addConstraint(widthConstraint)
     }
 

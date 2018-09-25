@@ -57,7 +57,7 @@ public class VerificationCodeLabel: UILabel
         carrierView.alpha = 0
         carrierView.backgroundColor = self.tintColor
         self.addSubview(carrierView)
-        self.bringSubview(toFront: carrierView)
+        self.bringSubviewToFront(carrierView)
     }
 
     private func addLine(_ line: CGRect)
