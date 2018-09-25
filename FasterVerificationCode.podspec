@@ -27,7 +27,7 @@ and faster the input of a verification code you provided via mail/phone.
   s.author           = { 'Posix88' => 'ninomusolino@gmail.com' }
   s.source           = { :git => 'https://github.com/Posix88/FasterVerificationCode.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/NinoMusolino'
-  s.swift_version = '3.3'
+  s.swift_version = '4.2'
   s.ios.deployment_target = '10.0'
   
   s.source_files = 'FasterVerificationCode/Classes/**/*'
