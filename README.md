@@ -2,9 +2,10 @@
 An high customizable and fast verification code view
 
 [![Version](https://img.shields.io/cocoapods/v/FasterVerificationCode.svg?style=flat)](https://cocoapods.org/pods/FasterVerificationCode)
+[![SPM](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://github.com/apple/swift-package-manager)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/posix88/FasterVerificationCode/master/LICENSE)
 [![Platform](https://img.shields.io/cocoapods/p/FasterVerificationCode.svg?style=flat)](https://cocoapods.org/pods/FasterVerificationCode)
-
+[![@Ninomusolino](https://img.shields.io/badge/contact-@Ninomusolino-blue.svg?style=flat)](https://twitter.com/Ninomusolino)
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/posix88/FasterVerificationCode/master/VerificationCodeView.gif" alt="Icon"/>
@@ -30,6 +31,19 @@ Add the following to your Podfile:
 ``` ruby
 pod 'FasterVerificationCode'
 ```
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into `Xcode`.
+
+Once you have your Swift package set up, adding FasterVerificationCode as a dependency is very easy. You've just to add it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/posix88/FasterVerificationCode", .upToNextMajor(from: "0.3.0"))
+]
+```
+
 #### Manual Installation
 
 All of the necessary source and resource files for `FasterVerificationCode` are in `FasterVerificationCode/Classes`.
