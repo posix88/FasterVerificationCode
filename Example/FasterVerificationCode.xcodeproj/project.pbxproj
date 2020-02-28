@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0EDDFA8F794181CC2FF879B2 /* Pods_FasterVerificationCode_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6311A263B69231BE06FC760 /* Pods_FasterVerificationCode_Tests.framework */; };
+		4C0CA590240902F0002E1811 /* FasterVerificationCode in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0CA58F240902F0002E1811 /* FasterVerificationCode */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E909527B27708BC803AA74 /* Pods_FasterVerificationCode_Example.framework in Frameworks */,
+				4C0CA590240902F0002E1811 /* FasterVerificationCode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +180,9 @@
 			dependencies = (
 			);
 			name = FasterVerificationCode_Example;
+			packageProductDependencies = (
+				4C0CA58F240902F0002E1811 /* FasterVerificationCode */,
+			);
 			productName = FasterVerificationCode;
 			productReference = 607FACD01AFB9204008FA782 /* FasterVerificationCode_Example.app */;
 			productType = "com.apple.product-type.application";
@@ -215,7 +220,6 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 7VV342DDLX;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -230,10 +234,14 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
+			packageReferences = (
+				4C0CA58E240902F0002E1811 /* XCRemoteSwiftPackageReference "FasterVerificationCode" */,
+			);
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -508,7 +516,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -518,15 +527,18 @@
 			baseConfigurationReference = 5A1A12AE39F97E378B5678E0 /* Pods-FasterVerificationCode_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7VV342DDLX;
+				DEVELOPMENT_TEAM = NEE9ZGT53Y;
 				INFOPLIST_FILE = FasterVerificationCode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -535,15 +547,18 @@
 			baseConfigurationReference = 15AB632384EEE98A39DA2C54 /* Pods-FasterVerificationCode_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7VV342DDLX;
+				DEVELOPMENT_TEAM = NEE9ZGT53Y;
 				INFOPLIST_FILE = FasterVerificationCode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -551,6 +566,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4985578DE8368857E4782A20 /* Pods-FasterVerificationCode_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = NEE9ZGT53Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -560,7 +576,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -572,12 +592,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1677A4A6DD86A2E3AFF41832 /* Pods-FasterVerificationCode_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = NEE9ZGT53Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -616,6 +641,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C0CA58E240902F0002E1811 /* XCRemoteSwiftPackageReference "FasterVerificationCode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/posix88/FasterVerificationCode";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C0CA58F240902F0002E1811 /* FasterVerificationCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C0CA58E240902F0002E1811 /* XCRemoteSwiftPackageReference "FasterVerificationCode" */;
+			productName = FasterVerificationCode;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 607FACC81AFB9204008FA782 /* Project object */;
 }

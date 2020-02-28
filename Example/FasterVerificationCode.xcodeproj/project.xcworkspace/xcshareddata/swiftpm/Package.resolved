@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FasterVerificationCode",
+        "repositoryURL": "https://github.com/posix88/FasterVerificationCode",
+        "state": {
+          "branch": "master",
+          "revision": "5292daf5b489056a64f72d344ce3438052dab77e",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
