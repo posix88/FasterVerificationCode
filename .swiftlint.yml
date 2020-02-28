@@ -20,10 +20,10 @@
 #  FILES ANALYZED
 #######################
 included: # paths to include during linting. `--path` is ignored if present.
-  - FasterVerificationCode
+  - Sources
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
-  - Pods
+  - Example
 
 
 #  LINTER RULES

@@ -1,4 +1,3 @@
-//
 //  StringExtension.swift
 //  FasterVerificationCode
 //

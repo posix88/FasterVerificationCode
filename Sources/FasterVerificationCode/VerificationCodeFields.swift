@@ -6,7 +6,7 @@
 
 import UIKit
 
-public class VerificationCodeLabel: UILabel
+open class VerificationCodeLabel: UILabel
 {
     private var isBordered: Bool = true
 	
@@ -15,25 +15,20 @@ public class VerificationCodeLabel: UILabel
 	private var bottomBorder: CALayer?
 	private var borderHeight: CGFloat = 1
 
-	open var borderColor: UIColor = .black
-	{
-		didSet
-		{
-			if isBordered
-			{
+	open var borderColor: UIColor = .black {
+		didSet {
+			if isBordered {
 				addLine(CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1))
 			}
 		}
 	}
 
-    override init(frame: CGRect)
-    {
+    override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
-	required public init?(coder aDecoder: NSCoder)
-    {
-        fatalError("init(coder:) has not been implemented")
+	public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
 	public convenience init(_ frame: CGRect, isBordered: Bool, borderColor: UIColor, borderHeight: CGFloat, tintColor: UIColor, backgroundColor: UIColor = .white)
@@ -84,7 +79,6 @@ public class VerificationCodeLabel: UILabel
         {
             self.carrierView.alpha = 1
         }, completion: nil)
-
     }
 
     func stopCarrierAnimation()

@@ -1,62 +1,50 @@
-//
 //  VerificationCode.swift
 //
 //  Created by Musolino, Antonino Francesco on 02/03/2018.
 //
 
-@objc public protocol VerificationCodeViewDelegate: class
-{
+@objc public protocol VerificationCodeViewDelegate: AnyObject {
 	func verificationCodeInserted(_ text: String, isComplete: Bool)
 	@objc optional func verificationCodeChanged()
 }
 
 import UIKit
 
-public class VerificationCodeView: UIView
+open class VerificationCodeView: UIView
 {
 
     @IBOutlet private weak var labelContainer: UIStackView!
     @IBOutlet private weak var hiddenTextField: VerificationCodeTextField!
 
 	/// True if VerificationCodeLabels have to show bottom border
-    @IBInspectable
-    open var labelHasBorder: Bool = true
+    @IBInspectable open var labelHasBorder: Bool = true
 
 	/// The VerificationCodeLabel border heigth
-	@IBInspectable
-	open var borderHeigth: CGFloat = 1
+	@IBInspectable open var borderHeigth: CGFloat = 1
 
 	/// The VerificationCodeLabel border color
-	@IBInspectable
-	open var labelBorderColor: UIColor = .black
+	@IBInspectable open var labelBorderColor: UIColor = .black
 
 	/// The VerificationCodeLabel border color in case of error
-	@IBInspectable
-	open var labelErrorColor: UIColor = .red
+	@IBInspectable open var labelErrorColor: UIColor = .red
 
 	/// The VerificationCodeLabel text color
-	@IBInspectable
-	open var labelTextColor: UIColor = .black
+	@IBInspectable open var labelTextColor: UIColor = .black
 
 	/// The VerificationCodeLabel tint color
-    @IBInspectable
-    open var labelTintColor: UIColor = .black
+    @IBInspectable open var labelTintColor: UIColor = .black
 
 	/// The VerificationCodeLabel background color
-    @IBInspectable
-    open var labelBackgroundColor: UIColor = .white
+    @IBInspectable open var labelBackgroundColor: UIColor = .white
 
     /// The VerificationCodeLabel width
-    @IBInspectable
-    open var labelWidth: CGFloat = 0
+    @IBInspectable open var labelWidth: CGFloat = 0
 
 	/// The space between labels
-	@IBInspectable
-	open var labelSpacing: CGFloat = 0
+	@IBInspectable open var labelSpacing: CGFloat = 0
 
 	/// True if the code has to be numeric
-    @IBInspectable
-    open var isNumeric: Bool = true
+    @IBInspectable open var isNumeric: Bool = true
 
 	/// The VerificationCodeLabel font
     open var labelFont: UIFont? = UIFont.systemFont(ofSize: 20)
@@ -97,7 +85,7 @@ public class VerificationCodeView: UIView
         super.init(frame: frame)
     }
 
-	required public init?(coder aDecoder: NSCoder) {
+	public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         guard
             let xib = Bundle(for: VerificationCodeView.self).loadNibNamed("VerificationCodeView", owner: self, options: nil),
@@ -128,7 +116,6 @@ public class VerificationCodeView: UIView
         super.awakeFromNib()
         hiddenTextField.delegate = self
     }
-
 
     /// The initialization method that size the view and add the labels
     ///
@@ -161,10 +148,10 @@ public class VerificationCodeView: UIView
     }
 
     private func calculateViewWidth() {
-        let numberOfSpace: CGFloat = CGFloat(numberOfLabel - 1)
+        let numberOfSpace = CGFloat(numberOfLabel - 1)
         let spaceOfLabels: CGFloat = labelWidth * CGFloat(numberOfLabel)
         let spaceBetweenLabels: CGFloat = numberOfSpace * labelSpacing
-        let newWidth: CGFloat = CGFloat(spaceBetweenLabels + spaceOfLabels)
+        let newWidth = CGFloat(spaceBetweenLabels + spaceOfLabels)
         let widthConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: newWidth)
         self.addConstraint(widthConstraint)
     }
