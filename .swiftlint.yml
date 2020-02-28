@@ -1,0 +1,413 @@
+#
+# SWIFTLINT 0.38.0 (Dec 2019)
+# 185 rules (./swiftLint rules | wc -l minus 4)
+
+# WHEN A NEW VERSION OF SWIFTLINT IS RELEASED :
+# - `pod update SwiftLint`
+# - Build. You may get new warnings, fix them.
+#
+# HOWEVER, MOST NEW RULES ARE OPT-IN, so you need to explicitely opt them in.
+# - Go to https://github.com/realm/SwiftLint/releases/
+# - Add new rules to this list, review whether or not they should be enabled.
+# - If so, enable, build, fix.
+
+# To list all rules: `swiftlint rules`
+# To list disabled rule: `swiftlint rules --disabled`
+# Auto-correction: swiftlint autocorrect
+# To generate doc: `swiftlint generate-docs > SwiftLintRules.md`
+
+
+#  FILES ANALYZED
+#######################
+included: # paths to include during linting. `--path` is ignored if present.
+  - FasterVerificationCode
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+
+
+#  LINTER RULES
+#######################
+whitelist_rules:
+
+#======================
+#  DOC
+#======================
+- file_header                              # ✅ Header comments should be consistent with project patterns. See below for Header RegEx used.
+- mark                                     # ✅ MARK comment should be in valid format. e.g. '// MARK: ...' or '// MARK: - ...'
+- missing_docs                             # ✅ If this is a framwork, public declarations should be documented, otherwise, shouldn't be `public` !
+- todo                                     # ✅ Alternatively, can use #warning(), which is built-in and has autocompletion/
+#- expiring_todo                            # ✅ TODOs and FIXMEs should be resolved prior to their expiry date. // TODO: [10/14/2019]
+
+
+#======================
+#  STYLE
+#======================
+## SPACES ##
+- comma                                    # ✅ There should be no space before and one after any comma.
+- colon                                    # ✅ Colons should be next to the identifier when specifying a type and next to the key in dictionary literals.
+- closure_spacing                          # ✅ Closure expressions should have a single space inside each brace.
+- closing_brace                            # ✅ Closing brace with closing parenthesis should not have any whitespaces in the middle.
+- operator_usage_whitespace                # ✅ Operators should be surrounded by a single whitespace when they are being used.
+- operator_whitespace                      # ✅ Operators should be surrounded by a single whitespace when defining them.
+- no_space_in_method_call                  # ✅ Don't add a space between the method name and the parentheses.
+- return_arrow_whitespace                  # ✅ Return arrow and return type should be separated by a single space or on a separate line.
+
+
+## EMPTY LINES ##
+- leading_whitespace                       # ✅ Files should not contain leading whitespace.
+- let_var_whitespace                       # ✅ Let and var should be separated from other statements by a blank line.
+- vertical_whitespace                      # ✅ Limit vertical whitespace to a single empty line.
+- vertical_whitespace_between_cases        # ✅ Include a single empty line between switch cases.
+- vertical_whitespace_closing_braces       # ✅ Don't include vertical whitespace (empty line) before closing braces.
+- trailing_newline                         # ✅ Files should have a single trailing newline. // Xcode automatically warns if there is 0. This warns for 2 or more.
+#- vertical_whitespace_opening_braces       # ⛔️ Don't include vertical whitespace (empty line) after opening braces.
+#- trailing_whitespace                      # ⛔️ Lines should not have trailing whitespace.
+
+
+## NEW LINES ##
+- attributes                               # ✅ Attributes should be on their own lines in functions and types, but on the same line as variables and imports. // @IBAction, @objc, @IBInspectable…
+#- conditional_returns_on_newline           # ⛔️ Conditional statements should always return on the next line
+#- multiline_arguments_brackets             # ⛔️ Multiline arguments should have their surrounding brackets in a new line.
+#- multiline_function_chains                # ⛔️ Chained function calls should be either on the same line, or one per line.
+#- multiline_literal_brackets               # ⛔️ Multiline literals should have their surrounding brackets in a new line.
+- multiline_parameters                     # ✅ Functions and methods parameters should be either on the same line, or one per line.
+#- multiline_parameters_brackets            # ⛔️ Multiline parameters should have their surrounding brackets in a new line.
+#- opening_brace                            # ⛔️ Opening braces should be preceded by a single space and on the same line as the declaration.
+- statement_position                       # ✅ Else and catch should be on the same line, one space after the previous declaration.
+#- switch_case_on_newline                   # ⛔️ Cases inside a switch should always be on a newline
+
+
+## ALIGNEMENT ##
+- multiline_arguments                      # ✅ Arguments should be either on the same line, or one per line.
+- vertical_parameter_alignment             # ✅ Function parameters should be aligned vertically if they're in multiple lines in a declaration.
+- vertical_parameter_alignment_on_call     # ✅ Function parameters should be aligned vertically if they're in multiple lines in a method call.
+- switch_case_alignment                    # ✅ Case statements should vertically align with their enclosing switch statement. // Yes because this is how Xcode indents it by default.
+#- closure_end_indentation                  # ⛔️ Closure end should have the same indentation as the line that started it. // Xcode indents otherwise
+- closure_parameter_position               # ✅ Closure parameters should be on the same line as opening brace.
+- collection_alignment                     # ✅ All elements in a collection literal should be vertically aligned
+#- literal_expression_end_indentation       # ⛔️ Array and dictionary literal end should have the same indentation as the line that started it. // Xcode indents otherwise
+
+
+## CODE ORGANISATION ##
+#- file_name                                # ⛔️ File name should match a type or extension declared in the file (if any).
+- modifier_order                           # ✅ Modifier order should be consistent. // preferred_modifier_order: [override, acl, setterACL, dynamic, mutators, lazy, final, required, convenience, typeMethods, owned]
+- protocol_property_accessors_order        # ✅ When declaring properties in protocols, the order of accessors should be `get set`.
+#- file_types_order                         # ⛔️ Specifies how the types within a file should be ordered. // order: [[SwiftLintFramework.FileType.supportingType], [SwiftLintFramework.FileType.mainType], [SwiftLintFramework.FileType.extension]]
+#- type_contents_order                      # ⛔️ Specifies the order of subtypes, properties, methods & more within a type. // order: [[SwiftLintFramework.TypeContent.case], [SwiftLintFramework.TypeContent.typeAlias, SwiftLintFramework.TypeContent.associatedType], [SwiftLintFramework.TypeContent.subtype], [SwiftLintFramework.TypeContent.typeProperty], …
+#- sorted_imports                           # ⛔️ Imports should be sorted. // Sorted semantically yes, alphabetically no. I have even seen sorting by length… As few imports as possible.
+#- no_grouping_extension                    # ⛔️ Extensions shouldn't be used to group code within the same source file. // Why this rule ? Grouping by protocols is great !
+
+
+#======================
+#  SWIFTIFY
+#======================
+- block_based_kvo                          # ✅ Prefer the new block based KVO API with keypaths // https://developer.apple.com/videos/play/wwdc2017-201/?time=1226
+- control_statement                        # ✅ `if`, `for`, `guard`, `switch`, `while`, and `catch` statements shouldn't unnecessarily wrap their conditionals or arguments in parentheses.
+- explicit_init                            # ✅ Explicitly calling .init() should be avoided.
+- legacy_cggeometry_functions              # ✅ Struct extension properties and methods are preferred over legacy functions
+- legacy_constant                          # ✅ Struct-scoped constants are preferred over legacy global constants.
+- legacy_constructor                       # ✅ Swift constructors are preferred over legacy convenience functions.
+- legacy_hashing                           # ✅ Prefer using the `hash(into:)` function instead of overriding `hashValue`
+- legacy_multiple                          # ✅ Prefer using the `isMultiple(of:)` function instead of using the remainder operator (`%`).
+- legacy_nsgeometry_functions              # ✅ Struct extension properties and methods are preferred over legacy functions
+- legacy_random                            # ✅ Prefer using `type.random(in:)` over legacy functions.
+- number_separator                         # ✅ Underscores should be used as thousand separator in large decimal numbers. // Param: minimum_length
+- syntactic_sugar                          # ✅ Shorthand syntactic sugar should be used, i.e. [Int] instead of Array<Int>.
+- trailing_semicolon                       # ✅ This is not C++ or Javascript !
+- toggle_bool                              # ✅ Prefer `someBool.toggle()` over `someBool = !someBool`.
+- unneeded_break_in_switch                 # ✅ https://github.com/realm/SwiftLint/issues/1870
+#- convenience_type                         # ✅ Types used for hosting only static members should be implemented as a caseless enum to avoid instantiation.
+#- discouraged_optional_boolean             # ⛔️ Prefer non-optional booleans over optional booleans. // I agree, but they are valid use case for optional bool (ex, optional bool parameter in a function). Turn on from time to time, but not always. https://github.com/realm/SwiftLint/issues/2011
+#- discouraged_optional_collection          # ⛔️ Prefer empty collection over optional collection. // I agree, but some existing APIs return optional Arrays. Turn on from time to time, but not always. Bug to improve that: https://github.com/realm/SwiftLint/issues/2298
+#- function_default_parameter_at_end        # ✅ Prefer to locate parameters with defaults toward the end of the parameter list.// Swift API Guidelines: https://github.com/realm/SwiftLint/issues/2176
+- yoda_condition                           # ✅ The variable should be placed on the left, the constant on the right of a comparison operator. // Useful in C, not needed in Swift.
+
+
+#======================
+#  CONCISION
+#======================
+- array_init                               # ✅ Prefer using `Array(seq)` over `seq.map { $0 }` to convert a sequence into an Array.
+- deployment_target                        # ✅ Availability checks or attributes shouldn't be using older versions that are satisfied by the deployment target.
+- duplicate_imports                        # ✅ Imports should be unique.
+#- explicit_enum_raw_value                  # ⛔️ Enums should be explicitly assigned their raw values. // Not always. But for Codables, yes.
+#- raw_value_for_camel_cased_codable_enum # ✅ Camel cased cases of Codable String enums should have raw value. // I think all Codable enums should have an explicit string. https://github.com/realm/SwiftLint/issues/2888
+#- redundant_string_enum_value              # ⛔️ String enum values can be omitted when they are equal to the enumcase name. // For Codable CodingKeys, I prefer having explicit string keys.
+#- empty_enum_arguments                     # ⛔️ Arguments can be omitted when matching enums with associated types if they are not used.
+#- empty_parameters                         # ⛔️ Prefer `() -> ` over `Void -> `. // Swift 4 compiler already does this now.
+- implicit_getter                          # ✅ Computed read-only properties and subscripts should avoid using the get keyword.
+#- implicit_return                         # ✅ Prefer implicit returns in closures.
+- joined_default_parameter                 # ✅ Discouraged explicit usage of the default separator.
+- multiple_closures_with_trailing_closure  # ✅ Trailing closure syntax should not be used when passing more than one closure argument.
+- redundant_discardable_let                # ✅ Prefer `_ = foo()` over `let _ = foo()` when discarding a result from a function.
+- redundant_nil_coalescing                 # ✅ nil coalescing operator is only evaluated if the lhs is nil, coalescing operator with nil as rhs is redundant
+- redundant_objc_attribute                 # ✅ Objective-C attribute (@objc) is redundant in declaration.
+- redundant_optional_initialization        # ✅ Initializing an optional variable with nil is redundant. // Mixed feelings
+- redundant_type_annotation                # ✅ Variables should not have redundant type annotation.
+#- explicit_type_interface                  # ⛔️ Properties should have a type interface
+- redundant_void_return                    # ✅ Returning Void in a function declaration is redundant.
+- shorthand_operator                       # ✅ Prefer shorthand operators (+=, -=, *=, /=) over doing the operation and assigning.
+#- trailing_closure                         # 🔁 Trailing closure syntax should be used whenever possible. // I prefer it on, but Xcode snippets fills it otherwise.
+- trailing_comma                           # ✅ Trailing commas in arrays and dictionaries should be avoided/enforced.
+#- unneeded_parentheses_in_closure_argument # 🔁 Parentheses are not needed when declaring closure arguments. // I prefer it on, but Xcode snippets fills it otherwise.
+- unused_capture_list                      # ✅ Unused reference in a capture list should be removed.
+- unused_closure_parameter                 # ✅ Unused parameter in a closure should be replaced with _.
+- unused_control_flow_label                # ✅ Unused control flow label should be removed.
+- unused_enumerated                        # ✅ When the index or the item is not used, `.enumerated()` can be removed.
+- unused_optional_binding                  # ✅ Prefer `!= nil` over `let _ =` // Param: ignore_optional_try: false
+- void_return                              # ✅ Returning Void in a function declaration is redundant.
+- superfluous_disable_command              # ✅ '// swiftlint:disable' commands are superfluous when the disabled rule would not have triggered a violation in the first place.
+
+
+#======================
+#  PERFORMANCE
+#======================
+- contains_over_filter_count               # ✅ Prefer `contains` over comparing `filter(where:).count` to 0.
+- contains_over_filter_is_empty            # ✅ Prefer `contains` over using `filter(where:).isEmpty`
+- contains_over_first_not_nil              # ✅ Prefer `contains` over `first(where:) != nil` and `firstIndex(where:) != nil`.
+- contains_over_range_nil_comparison       # ✅ Prefer `contains` over `range(of:) != nil` and `range(of:) == nil`. // https://github.com/realm/SwiftLint/issues/2776
+- empty_collection_literal                 # ✅ Prefer checking `isEmpty` over comparing collection to an empty array or dictionary literal.
+#- empty_count                              # ✅ Prefer checking `isEmpty` over comparing `count` to zero.
+- empty_string                             # ✅ Prefer checking `isEmpty` over comparing `string` to an empty string literal.
+- first_where                              # ✅ Prefer using `.first(where:)` over `.filter { }.first` in collections.
+- is_disjoint                              # ✅ Prefer using `Set.isDisjoint(with:)` over `Set.intersection(_:).isEmpty`.
+- last_where                               # ✅ Prefer using `.last(where:)` over `.filter { }.last` in collections.
+- reduce_boolean                           # ✅ Prefer using `.allSatisfy()` or `.contains()` over `reduce(true)` or `reduce(false)`
+- reduce_into                              # ✅ Prefer `reduce(into:_:)` over `reduce(_:_:)` for copy-on-write types // https://github.com/realm/SwiftLint/issues/2658
+- flatmap_over_map_reduce                  # ✅ Prefer `flatMap` over `map` followed by `reduce([], +)`. // https://github.com/realm/SwiftLint/issues/2883
+- sorted_first_last                        # ✅ Prefer using `min()` or `max()` over `sorted().first` or `sorted().last`
+
+
+#======================
+#  POTENTIAL BUGS
+#======================
+## CRASHS ##
+#- force_cast                               # ⛔️ Force casts should be avoided.
+- force_try                                # ✅ Force tries should be avoided. // Errors should be propagated and not silenced
+#- force_unwrapping                         # ⛔️ Force unwrapping should be avoided. // Worth enabling from time to time for an audit, but cannot be always turned on
+#- implicitly_unwrapped_optional            # ✅ Implicitly unwrapped optionals should be avoided when possible. // Param: allExceptIBOutlets
+- unowned_variable_capture                 # ✅ Prefer capturing references as weak to avoid potential crashes.
+
+## MEMORY LEAKS ##
+- anyobject_protocol                       # ✅ Prefer using `AnyObject` over `class` for class-only protocols. // https://useyourloaf.com/blog/class-only-protocols-in-swift-4/
+#- class_delegate_protocol                  # ✅ Delegate protocols should be class-only so they can be weakly referenced.
+#- weak_delegate                            # ✅ Delegates should be weak to avoid reference cycles.
+- discarded_notification_center_observer   # ✅ When registering for a notification using a block, the opaque observer that is returned should be stored so it can be removed later.
+- notification_center_detachment           # ✅ An object should only remove itself as an observer in `deinit`. // Don't removeObserver(self), but just the notification you're responsible for. https://github.com/realm/SwiftLint/issues/1061
+
+## ERRORS ##
+- untyped_error_in_catch                   # ✅ Catch statements should not declare error variables without type casting. // This is often a code smell for unhandled errors
+- fatal_error_message                      # ✅ A fatalError call should have a message. // Better debugability
+
+## OTHER BUGS ##
+- compiler_protocol_init                   # ✅ The initializers declared in compiler protocols such as `ExpressibleByArrayLiteral` shouldn't be called directly. // https://github.com/realm/SwiftLint/issues/1096
+- discouraged_direct_init                  # ✅ Discouraged direct initialization of types that can be harmful. // Params: types: ["Bundle", "Bundle.init", "UIDevice", "UIDevice.init"]
+- duplicate_enum_cases                     # ✅ Enum can't contain multiple cases with the same name. // Seems to be a bug in Swift Compiler. https://github.com/realm/SwiftLint/issues/2676
+- dynamic_inline                           # ✅ Avoid using 'dynamic' and '@inline(__always)' together. // https://github.com/realm/SwiftLint/pull/953
+- fallthrough                              # ✅ Fallthrough should be avoided.
+#- no_fallthrough_only                      # ⛔️ Fallthroughs can only be used if the `case` contains at least one other statement.
+- identical_operands                       # ✅ Comparing two identical operands is likely a mistake.
+- inert_defer                              # ✅ If defer is at the end of its parent scope, it will be executed right where it is anyway.
+#- nslocalizedstring_key                    # ✅ Static strings should be used as key in NSLocalizedString in order for genstrings to work. // Depends on Loc Workflow
+#- nslocalizedstring_require_bundle         # ⛔️ Calls to NSLocalizedString should specify the bundle which contains the strings file. // Useful only for frameworks. https://github.com/realm/SwiftLint/issues/2595
+- nsobject_prefer_isequal                  # ✅ NSObject subclasses should implement isEqual instead of ==.
+- override_in_extension                    # ✅ Extensions shouldn't override declarations. // https://github.com/realm/SwiftLint/issues/1884
+- overridden_super_call                    # ✅ Some overridden methods should always call super
+- prohibited_super_call                    # ✅ Some methods should not call super
+- unavailable_function                     # ✅ Unimplemented functions should be marked as unavailable.
+- unused_setter_value                      # ✅ Setter value is not used.
+
+
+#======================
+#  IDIOMATIC - PREFS
+#======================
+- static_operator                          # ✅ Operators should be declared as static functions, not free functions. // AKA Don't pollute namespace
+- empty_parentheses_with_trailing_closure  # ✅ When using trailing closures, empty parentheses should be avoided after the method call. // Better readablilty
+#- for_where                                # 🔁 `where` clauses are preferred over a single `if` inside a `for`.
+#- pattern_matching_keywords                # ⛔️ Combine multiple pattern matching bindings by moving keywords out of tuples. // Worth enabling from time to time for an audit.
+#- required_deinit                          # ⛔️ Classes should have an explicit deinit method. // Useful for investigating memory leaks. https://github.com/realm/SwiftLint/issues/2620
+- prefixed_toplevel_constant               # ✅ Top-level constants should be prefixed by `k`. // ⚠️ The real Warning is: Don't have top-level constants. Don't pollute namespace.
+#- required_enum_case                       # 🔁 Enums conforming to a specified protocol must implement a specific case(s).
+
+
+#======================
+#  INTERFACE BUILDER
+#======================
+#- private_outlet                           # ✅ IBOutlets should be private. Unfortunately, the code access outlets directly in too many places, making  this rule hard to enable without major refactoring.
+#- private_action                           # ⛔️ IBActions should be private. // In theory should be enabled, like for IBOutlet, but in practice this is too noisy for no added value
+#- prohibited_interface_builder             # ⛔️ Creating views using Interface Builder should be avoided. // We still ♡ IB
+#- strong_iboutlet                          # ✅ @IBOutlets shouldn't be declared as weak. // https://github.com/realm/SwiftLint/issues/2433 - https://stackoverflow.com/questions/7678469/should-iboutlets-be-strong-or-weak-under-arc
+- valid_ibinspectable                      # ✅ @IBInspectable should be applied to variables only, have its type explicit and be of a supported type
+#- discouraged_object_literal               # ✅ Should #imageLiteral() and #colorLiteral be allowed? No. Colors defined in Assets Catalog can be use in Storyboards too and adapt DarkMode. Image literals are hard to preview and differentiate among eachother. https://github.com/realm/SwiftLint/issues/1987
+#- object_literal                           # ⛔️ Prefer object literals over image and color inits. // Params: image_literal: true, color_literal: true // This is the opposite of discouraged_object_literal rule.
+
+
+#======================
+#  ACLs
+#======================
+#- explicit_acl                             # ⛔️ All declarations should specify Access Control Level keywords explicitly.
+#- explicit_top_level_acl                   # ⛔️ Top-level declarations should specify Access Control Level keywords explicitly.
+#- extension_access_modifier                # 🔁 Prefer not to use extension access modifiers
+- lower_acl_than_parent                    # ✅ Ensure definitions have a lower access control level than their enclosing parent. https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html
+#- no_extension_access_modifier             # 🔁 Prefer not to use extension access modifiers
+#- private_over_fileprivate                 # Prefer `private` over `fileprivate` declarations. // Params: validate_extensions: false
+- redundant_set_access_control             # ✅ Property setter access level shouldn't be explicit if it's the same as the variable access level.
+#- strict_fileprivate                       # `fileprivate` should be avoided.
+
+
+#======================
+#  UNIT TESTS
+#======================
+#- empty_xctest_method                      # ✅ Empty XCTest method should be avoided.
+#- nimble_operator                          # ⛔️ Prefer Nimble operator overloads over free matcher functions. // Only for Nibble testing framework. https://github.com/Quick/Nimble
+#- private_unit_test                        # ✅ Unit tests marked private are silently skipped.
+#- quick_discouraged_call                   # ⛔️ Discouraged call inside 'describe' and/or 'context' block. // Only for Quick testing framework
+#- quick_discouraged_focused_test           # ⛔️ Discouraged focused test. Other tests won't run while this one is focused. // Only for Quick testing framework
+#- quick_discouraged_pending_test           # ⛔️ Discouraged pending test. This test won't run while it's marked as pending. // Only for Quick testing framework
+#- single_test_class                        # 🔁 Test files should contain a single QuickSpec or XCTestCase class.
+#- xct_specific_matcher                     # ✅ Prefer specific XCTest matchers over `XCTAssertEqual` and `XCTAssertNotEqual`
+#- xctfail_message                          # ✅ An XCTFail call should include a description of the assertion.
+
+
+#======================
+#  METRICS
+#======================
+## LENGTH ##
+#- file_length                              # ✅ Files should not span too many lines.
+#- type_body_length                         # ✅ Type bodies should not span too many lines.
+#- function_body_length                     # ✅ Functions bodies should not span too many lines.
+#- closure_body_length                      # ✅ Closure bodies should not span too many lines.
+#- line_length                              # ✅ Lines should not span too many characters.
+
+## NAMES ##
+- type_name                                # ✅ Type name should only contain alphanumeric characters, start with an uppercase character and span between 3 and 40 characters in length.
+#- identifier_name                          # ✅ Identifier names should only contain alphanumeric characters and start with a lowercase character or should only contain capital letters. In an exception to the above, variable names may start with a capital letter when they are declared static and immutable. Variable names should not be too long or too short. // (min_length) w/e: 3/2, (max_length) w/e: 40/60, excluded: [], allowed_symbols: [], validates_start_with_lowercase: true // We won't prevent 1-letter variables, but this should be audited from time to time. We keep the other identifier checks.
+- generic_type_name                        # ✅ Generic type name should only contain alphanumeric characters, start with an uppercase character and span between 1 and 20 characters in length.
+
+## COMPLEXITY ##
+#- cyclomatic_complexity                    # ✅ warning: 10, error: 20, ignores_case_statements: false
+#- function_parameter_count                 # ✅ warning: 5, error: 8, ignores_default_parameters: true // Find the right threshold, but functions with 16 parameters and including optional Bools should probably be revised.
+#- nesting                                  # ✅ (type_level) w: 1, (statement_level) w: 5
+#- large_tuple                              # ✅ warning: 2, error: 3
+
+
+#  CUSTOM RULES
+#######################
+- custom_rules
+
+custom_rules:
+  no_silent_error:
+    name: "Unhandled Error"
+    regex: '\.catch\(? ?\{ (\[weak self\])? ?\(?_\)? in'
+    message: "`catch _` ignores the descriptive error that might be thrown. Use `catch error` instead."
+
+  no_optional_try:
+    name: "Optional try"
+    regex: '\Wtry\? ' # Should match userdefaults.set(try? toto), but not // should we retry?
+    message: "`try?` ignores the descriptive error that might be thrown. Use do/catch instead"
+  
+# swiftgen_assets:
+#   name: "SwiftGen Assets"
+#   regex: '(?:UIImage\(named: ".+"\))|(?:#imageLiteral\(resourceName: ".+"\))|(?:UIColor\(named: ".+"\))'
+#   message: "Use Asset.<asset> instead"
+
+
+#  RULES CONFIGURATIONS
+#######################
+file_length:
+    warning: 400
+
+type_body_length:
+    warning: 200
+
+function_body_length:
+    warning: 100
+
+closure_body_length:
+    warning: 40 # Approximately a screen height
+
+line_length:
+    warning: 300
+    error: 1000
+    ignores_urls: true
+    ignores_function_declarations: true
+    ignores_comments: true
+    ignores_interpolated_strings: true
+
+type_name:
+    min_length: 3
+    max_length: 60
+    excluded: []
+    allowed_symbols: []
+    validates_start_with_lowercase: true
+
+identifier_name:
+    min_length: 3
+    max_length: 40
+    excluded: []
+    allowed_symbols: []
+    validates_start_with_lowercase: true
+
+generic_type_name:
+    min_length: 1
+    max_length: 20
+    excluded: []
+    allowed_symbols: []
+    validates_start_with_lowercase: true
+
+file_header:
+# Custom template for new files: https://useyourloaf.com/blog/changing-xcode-header-comment/
+# This pattern doesn't include file name (*.swift) or project name (Luce SM, SAKE…): They are often out of sync, add noise in search results, and don't bring value anyway.
+  required_pattern: |
+                    \/\/
+                    \/\/  Created by .*? on \d{1,2}\/\d{1,2}\/20\d{2}\.
+                    \/\/  Copyright © 20\d{2} .*?\. All rights reserved\.
+                    \/\/
+
+attributes:
+    always_on_same_line: ["@IBAction", "@objc"]
+    always_on_line_above: []
+
+multiline_arguments:
+    only_enforce_after_first_closure_on_first_line: true
+
+number_separator:
+    minimum_length: 5 #1000 is OK, 10000 isn't. Also, this allows years.
+
+force_cast:
+    severity: warning  # Not sure why it defaults to error
+
+empty_count:
+    severity: warning  # Not sure why it defaults to error
+
+deployment_target:
+    iOS_deployment_target: 11.0 # Don't forget to change also in: Xcode project + swiftlint.yml + Podfile
+
+implicitly_unwrapped_optional:
+    allExceptIBOutlets: true
+
+identifier_name:
+    min_length: 1 # Allow vc, tv, i…
+    allowed_symbols: ["_"]
+
+large_tuple:
+    warning: 3
+
+
+#  ANALYZER (Experimental)
+############################
+# The experimental swiftlint analyze command can lint Swift files using the full type-checked AST.
+# Analyzer rules also tend to be considerably slower than lint rules (≈ 2hours)
+# STEPS :
+# 1. Clean Derived Data (Xcode > Clean)
+# 2. xcodebuild -workspace Luce\ SM.xcworkspace -scheme "Luce SM - DEV" > xcodebuild.log (≈ 100Mo file)
+# 3. ./Pods/SwiftLint/swiftlint analyze --compiler-log-path /path/to/xcodebuild.log
+
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+#- explicit_self                            # ⛔️ Instance variables and functions should be explicitly accessed with 'self.'.
+- unused_declaration                       # ✅ https://github.com/realm/SwiftLint/pull/2814
+- unused_import                            # ✅
+
+unused_declaration:
+  severity: warning
+  include_public_and_open: true            # True since this is an app with no framweworks

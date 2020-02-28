@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		1025BF6D4A416AEBEE39BBF6B74CD0CD /* FasterVerificationCode-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A88D9A7B9649A0FDFFF3C910DF52200 /* FasterVerificationCode-dummy.m */; };
 		14BC753C05B25F2577C30D3FC85083CD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		1E246CE093826B566CAE5FAA68C58CD6 /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B5BB6F39475A603225B7A39BAD7099 /* VerificationCodeView.swift */; };
 		2E1E2D44C195D73D6C013D4ADB6B2294 /* FasterVerificationCode.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1FD333D6221A3161273C3129292DF2DD /* FasterVerificationCode.bundle */; };
 		33A93CDB5EAE823969A3BAED7C9731E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
-		4A7DDEE22078F04B005A85B8 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DDEE12078F04A005A85B8 /* StringExtension.swift */; };
-		541A52465815E0F2C1F746F5512E401E /* VerificationCodeView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 102FCF37FBE807472BD5333043ADC1A3 /* VerificationCodeView.xib */; };
+		4CAA542724090094006C6B2D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA542324090094006C6B2D /* StringExtension.swift */; };
+		4CAA542824090094006C6B2D /* VerificationCodeFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA542424090094006C6B2D /* VerificationCodeFields.swift */; };
+		4CAA542924090094006C6B2D /* VerificationCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CAA542524090094006C6B2D /* VerificationCodeView.xib */; };
+		4CAA542A24090094006C6B2D /* VerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA542624090094006C6B2D /* VerificationCodeView.swift */; };
 		835A6A15BED12D0D5F84932AE7018544 /* Pods-FasterVerificationCode_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 554E924C4CB54870DB330F6C22D2A70A /* Pods-FasterVerificationCode_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BEA1C5ABF012D434891D4D37EEBB82F8 /* FasterVerificationCode-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E78B94F0D8A7D1A59EF3B03A4649A7A1 /* FasterVerificationCode-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFBD05BED4C58A0AD2F5BBD97BFDB2FA /* Pods-FasterVerificationCode_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A759261C386844CDF47432EA0E11E9E /* Pods-FasterVerificationCode_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C477A962E71B9C0AF1BC3147E8B0BC0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 		DC9688DE392D447F5458D03EB1982733 /* Pods-FasterVerificationCode_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7C7C9715DA9EA35FB27EA23F18F02B0 /* Pods-FasterVerificationCode_Tests-dummy.m */; };
-		F004188E06B8F38314B839BEDE37836F /* VerificationCodeFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8155845351ECC87D46451666E23F1BBD /* VerificationCodeFields.swift */; };
 		F3A2BF4E29DB956A8EDE6D36851D3307 /* Pods-FasterVerificationCode_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0988DA804404F3E77F7DD51A2AABC13 /* Pods-FasterVerificationCode_Example-dummy.m */; };
 		FACF11DEA002144E058BDB4EF3691234 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +44,6 @@
 /* Begin PBXFileReference section */
 		021A6D9E32D6FA2A36DD4B676E4C3DC1 /* FasterVerificationCode.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FasterVerificationCode.modulemap; sourceTree = "<group>"; };
 		0A1968F2B5240E53302CA2EF43F75AA3 /* FasterVerificationCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FasterVerificationCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		102FCF37FBE807472BD5333043ADC1A3 /* VerificationCodeView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = VerificationCodeView.xib; path = FasterVerificationCode/Classes/VerificationCodeView.xib; sourceTree = "<group>"; };
 		16BB6A62C0BFF078BF7039BFC9AF8A3C /* Pods-FasterVerificationCode_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FasterVerificationCode_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D6D21588890B5DBEBDF89ED8FA77AFF /* Pods-FasterVerificationCode_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FasterVerificationCode_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1FD333D6221A3161273C3129292DF2DD /* FasterVerificationCode.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FasterVerificationCode.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,11 +56,13 @@
 		409F6D093EC496EE41B4D32B4CFD4A79 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46734E16332B66989297A13C60B500BF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46E0BC2EF4D2AFD9A4673EC7A077B61A /* Pods-FasterVerificationCode_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FasterVerificationCode_Example-resources.sh"; sourceTree = "<group>"; };
-		4A7DDEE12078F04A005A85B8 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = FasterVerificationCode/Classes/StringExtension.swift; sourceTree = "<group>"; };
+		4CAA542324090094006C6B2D /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Sources/FasterVerificationCode/StringExtension.swift; sourceTree = "<group>"; };
+		4CAA542424090094006C6B2D /* VerificationCodeFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerificationCodeFields.swift; path = Sources/FasterVerificationCode/VerificationCodeFields.swift; sourceTree = "<group>"; };
+		4CAA542524090094006C6B2D /* VerificationCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VerificationCodeView.xib; path = Sources/FasterVerificationCode/VerificationCodeView.xib; sourceTree = "<group>"; };
+		4CAA542624090094006C6B2D /* VerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerificationCodeView.swift; path = Sources/FasterVerificationCode/VerificationCodeView.swift; sourceTree = "<group>"; };
 		554E924C4CB54870DB330F6C22D2A70A /* Pods-FasterVerificationCode_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FasterVerificationCode_Example-umbrella.h"; sourceTree = "<group>"; };
 		5A759261C386844CDF47432EA0E11E9E /* Pods-FasterVerificationCode_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FasterVerificationCode_Tests-umbrella.h"; sourceTree = "<group>"; };
 		648A462DC24850612749FC636486AD16 /* Pods-FasterVerificationCode_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FasterVerificationCode_Example.release.xcconfig"; sourceTree = "<group>"; };
-		8155845351ECC87D46451666E23F1BBD /* VerificationCodeFields.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerificationCodeFields.swift; path = FasterVerificationCode/Classes/VerificationCodeFields.swift; sourceTree = "<group>"; };
 		84A5B83779E37CB733068D1896F2EF7C /* Pods_FasterVerificationCode_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FasterVerificationCode_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C572026629913ADC06CC2B7A485C69E /* Pods-FasterVerificationCode_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FasterVerificationCode_Tests.modulemap"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -80,7 +81,6 @@
 		E78B94F0D8A7D1A59EF3B03A4649A7A1 /* FasterVerificationCode-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FasterVerificationCode-umbrella.h"; sourceTree = "<group>"; };
 		ED27FEB5BCFEA02BBE907280EA913EE7 /* FasterVerificationCode.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = FasterVerificationCode.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F0934D83297FC5EE42E57D7B4E611E80 /* Pods-FasterVerificationCode_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FasterVerificationCode_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F6B5BB6F39475A603225B7A39BAD7099 /* VerificationCodeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VerificationCodeView.swift; path = FasterVerificationCode/Classes/VerificationCodeView.swift; sourceTree = "<group>"; };
 		F7C7C9715DA9EA35FB27EA23F18F02B0 /* Pods-FasterVerificationCode_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FasterVerificationCode_Tests-dummy.m"; sourceTree = "<group>"; };
 		FD917754B23F9932128974CDB2325891 /* ResourceBundle-FasterVerificationCode-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FasterVerificationCode-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,10 +232,10 @@
 		F4445CD0C2F6134804EAE2090B66B18B /* FasterVerificationCode */ = {
 			isa = PBXGroup;
 			children = (
-				4A7DDEE12078F04A005A85B8 /* StringExtension.swift */,
-				8155845351ECC87D46451666E23F1BBD /* VerificationCodeFields.swift */,
-				F6B5BB6F39475A603225B7A39BAD7099 /* VerificationCodeView.swift */,
-				102FCF37FBE807472BD5333043ADC1A3 /* VerificationCodeView.xib */,
+				4CAA542624090094006C6B2D /* VerificationCodeView.swift */,
+				4CAA542324090094006C6B2D /* StringExtension.swift */,
+				4CAA542424090094006C6B2D /* VerificationCodeFields.swift */,
+				4CAA542524090094006C6B2D /* VerificationCodeView.xib */,
 				DAEB99503BD6CB2F027D96DBA353C5BA /* Pod */,
 				089CB0A4E424C72374823706F2613C5E /* Support Files */,
 			);
@@ -324,6 +324,7 @@
 				344AC61A2700B493FB469562C76B2AA7 /* Frameworks */,
 				779F6D4616E9269F1BE305310682F1A2 /* Resources */,
 				6BA569D89CCFEDF1D5755BF1F2C0AA48 /* Headers */,
+				4C0345C2240813D600485DC5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -400,11 +401,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CAA542924090094006C6B2D /* VerificationCodeView.xib in Resources */,
 				2E1E2D44C195D73D6C013D4ADB6B2294 /* FasterVerificationCode.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C0345C2240813D600485DC5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		403261CD1C788F55E94BAA4B603FE2A0 /* Sources */ = {
@@ -420,10 +442,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1025BF6D4A416AEBEE39BBF6B74CD0CD /* FasterVerificationCode-dummy.m in Sources */,
-				F004188E06B8F38314B839BEDE37836F /* VerificationCodeFields.swift in Sources */,
-				4A7DDEE22078F04B005A85B8 /* StringExtension.swift in Sources */,
-				1E246CE093826B566CAE5FAA68C58CD6 /* VerificationCodeView.swift in Sources */,
-				541A52465815E0F2C1F746F5512E401E /* VerificationCodeView.xib in Sources */,
+				4CAA542724090094006C6B2D /* StringExtension.swift in Sources */,
+				4CAA542824090094006C6B2D /* VerificationCodeFields.swift in Sources */,
+				4CAA542A24090094006C6B2D /* VerificationCodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CC8F31981B66F91F6266719224D96AF /* FasterVerificationCode.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -789,6 +811,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2CC8F31981B66F91F6266719224D96AF /* FasterVerificationCode.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

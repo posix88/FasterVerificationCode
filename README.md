@@ -50,19 +50,17 @@ For a complete working example, check out the repo and run `pod install` into th
 ```swift
 @IBOutlet weak var verificationCodeView: VerificationCodeView!
 
-override func viewDidLoad()
-{
-super.viewDidLoad()
-verificationCodeView.setLabelNumber(6)
-verificationCodeView.delegate = self
+override func viewDidLoad() {
+    super.viewDidLoad()
+    verificationCodeView.setLabelNumber(6)
+    verificationCodeView.delegate = self
 }
 
-extension YourViewController: VerificationCodeViewDelegate
-{
-func verificationCodeInserted(_ text: String, isComplete: Bool)
-{ 
-...
-}
+extension YourViewController: VerificationCodeViewDelegate {
+
+    func verificationCodeInserted(_ text: String, isComplete: Bool) { 
+    ...
+    }
 }
 ```
 ### VerificationCodeViewDelegate
@@ -81,14 +79,12 @@ It gives you the current text and if the text was inserted totally.
 You can check the correctness of the inserted code and show a visual feedback to the user
 
 ```swift
-if text == "123456"
-{
-.....
-} else
-{
-// The inserted code is wrong
-verificationCodeView.showError = true
-}
+    if text == "123456" {
+        .....
+    } else {
+        // The inserted code is wrong
+        verificationCodeView.showError = true
+    }
 ```
 
 #### verificationCodeChanged (optional)
@@ -99,10 +95,9 @@ verificationCodeView.showError = true
 This method is optional and is called only when the user is deleting a character. It should be implemented only if you are interested in error handling and you want to reset the border color to the default color you inserted.
 
 ```swift
-func verificationCodeChanged()
-{
-verificationCodeView.showError = false
-}
+    func verificationCodeChanged() {
+        verificationCodeView.showError = false
+    }
 ```
 
 ## Contributing

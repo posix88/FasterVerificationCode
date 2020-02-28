@@ -62,13 +62,10 @@ public class VerificationCodeView: UIView
     open var labelFont: UIFont? = UIFont.systemFont(ofSize: 20)
 
 	/// True if the VerificationCodeLabels have to show the error
-	open var showError: Bool = false
-	{
-		didSet
-		{
+	open var showError: Bool = false {
+		didSet {
 			let borderColor: UIColor = showError ? labelErrorColor : labelBorderColor
-			for label in labels
-			{
+			for label in labels {
 				label.borderColor = borderColor
 			}
 		}
@@ -96,30 +93,24 @@ public class VerificationCodeView: UIView
 	/// The long press gesture that trigger the paste action
     private var longPressGesture: UILongPressGestureRecognizer!
 
-    override init(frame: CGRect)
-    {
+    override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
-	required public init?(coder aDecoder: NSCoder)
-    {
+	required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         guard
             let xib = Bundle(for: VerificationCodeView.self).loadNibNamed("VerificationCodeView", owner: self, options: nil),
-            let views = xib as? [UIView] else
-        {
+            let views = xib as? [UIView], let view = views.first else {
             return
         }
-
-        if views.count > 0
-        {
-            view = views[0]
-            view.frame = bounds
-            view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
-            view.backgroundColor = .clear
-            self.addSubview(view)
-			self.backgroundColor = .clear
-        }
+        
+        self.view = view
+        self.view.frame = bounds
+        self.view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
+        self.view.backgroundColor = .clear
+        self.addSubview(view)
+        self.backgroundColor = .clear
 
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(openKeyboard))
         tapGesture.numberOfTapsRequired = 1
@@ -133,8 +124,7 @@ public class VerificationCodeView: UIView
         } 
     }
 
-	override public func awakeFromNib()
-    {
+	override public func awakeFromNib() {
         super.awakeFromNib()
         hiddenTextField.delegate = self
     }
@@ -145,9 +135,7 @@ public class VerificationCodeView: UIView
     /// - Parameter numberOfLabel: the number of label to be shown
     public func setLabelNumber(_ numberOfLabel: Int)
     {
-        guard numberOfLabel > 0
-        else
-        {
+        guard numberOfLabel > 0 else {
             return
         }
 		labelContainer.spacing = labelSpacing > 0 ? labelSpacing : 10
@@ -172,8 +160,7 @@ public class VerificationCodeView: UIView
 		}
     }
 
-    private func calculateViewWidth()
-    {
+    private func calculateViewWidth() {
         let numberOfSpace: CGFloat = CGFloat(numberOfLabel - 1)
         let spaceOfLabels: CGFloat = labelWidth * CGFloat(numberOfLabel)
         let spaceBetweenLabels: CGFloat = numberOfSpace * labelSpacing
@@ -182,8 +169,7 @@ public class VerificationCodeView: UIView
         self.addConstraint(widthConstraint)
     }
 
-    @objc private func openKeyboard()
-    {
+    @objc private func openKeyboard() {
         hiddenTextField.becomeFirstResponder()
         if currentLabel != labels.count
         {
@@ -191,14 +177,12 @@ public class VerificationCodeView: UIView
         }
     }
 
-    @objc private func showPasteMenu()
-    {
+    @objc private func showPasteMenu() {
         hiddenTextField.becomeFirstResponder()
 
         let menu = UIMenuController.shared
 
-        if !menu.isMenuVisible
-        {
+        if !menu.isMenuVisible {
             menu.setTargetRect(bounds, in: self)
             menu.setMenuVisible(true, animated: true)
         }
@@ -216,9 +200,7 @@ extension VerificationCodeView: UITextFieldDelegate
 	public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
 	{
 		stopCurrentCarrierAnimation()
-		guard let text = textField.text
-		else
-		{
+		guard let text = textField.text else {
 			delegate?.verificationCodeInserted("", isComplete: false)
 			return true
 		}
@@ -232,58 +214,47 @@ extension VerificationCodeView: UITextFieldDelegate
 
 	public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
-        guard let text = textField.text
-        else
-		{
+        guard let text = textField.text else {
 			return true
 		}
 
-		guard insertedTextIsValid(string) || string.count == 0
-		else
-		{
+        guard insertedTextIsValid(string) || string.count == 0 else {
 			return false
 		}
 
 		// this is possible only if i've just pasted some text
-		if string.count > 1
-        {
+		if string.count > 1 {
 			return verificationCodeTextField(textField, handleCopiedText: string)
         }
+        
         let newLength = text.count + string.count - range.length
 
 		// I'm adding characters into the textfield
-        if newLength <= numberOfLabel && string.count > 0
-        {
+        if newLength <= numberOfLabel && string.count > 0 {
             stopCurrentCarrierAnimation()
             labels[currentLabel].text = string
             currentLabel += 1
             startCurrentCarrierAnimation()
         }
 		// I'm deleting characters from the textfield
-		else if string.count == 0
-        {
+		else if string.count == 0 {
 			delegate?.verificationCodeChanged?()
-            if range.length > 1
-            {
-                for label in labels
-                {
+            if range.length > 1 {
+                for label in labels {
                     label.text = ""
                     currentLabel = 0
                 }
-            } else if range.length == 1
-            {
+            } else if range.length == 1 {
                 stopCurrentCarrierAnimation()
                 currentLabel -= 1
                 labels[currentLabel].text = ""
                 startCurrentCarrierAnimation()
-            } else if range.length == 0
-            {
+            } else if range.length == 0 {
                 return true
             }
         }
 
-		if newLength == numberOfLabel
-		{
+		if newLength == numberOfLabel {
 			// Calling resignFirstResponder doesn't update textfield text
 			// I've to add manually the last char
 			textField.text?.append(string)
@@ -293,34 +264,26 @@ extension VerificationCodeView: UITextFieldDelegate
         return newLength <= numberOfLabel
     }
 
-    private func stopCurrentCarrierAnimation()
-    {
-        if currentLabel != labels.count
-        {
+    private func stopCurrentCarrierAnimation() {
+        if currentLabel != labels.count {
             labels[currentLabel].stopCarrierAnimation()
         }
     }
 
-    private func startCurrentCarrierAnimation()
-    {
-        if currentLabel != labels.count
-        {
+    private func startCurrentCarrierAnimation() {
+        if currentLabel != labels.count {
             labels[currentLabel].startCarrierAnimation()
         }
     }
 
-	private func verificationCodeTextField(_ textField: UITextField, handleCopiedText string: String) -> Bool
-	{
+	private func verificationCodeTextField(_ textField: UITextField, handleCopiedText string: String) -> Bool {
 		stopCurrentCarrierAnimation()
 		currentLabel = 0
-		for label in labels
-		{
-			if let index = string.index(string.startIndex, offsetBy: currentLabel, limitedBy: string.endIndex)
-			{
+		for label in labels {
+			if let index = string.index(string.startIndex, offsetBy: currentLabel, limitedBy: string.endIndex) {
 				label.text = String(string[index])
 				currentLabel += 1
-			} else
-			{
+			} else {
 				return false
 			}
 		}
@@ -328,10 +291,8 @@ extension VerificationCodeView: UITextFieldDelegate
 		return true
 	}
 
-	private func insertedTextIsValid(_ text: String) -> Bool
-	{
-		if isNumeric && !text.isNumeric
-		{
+	private func insertedTextIsValid(_ text: String) -> Bool {
+		if isNumeric && !text.isNumeric {
 			return false
 		}
 		return true

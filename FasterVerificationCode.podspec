@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FasterVerificationCode'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'An high customizable and fast verification input view.'
 
 # This description is used to generate tags and improve search results.
@@ -27,12 +27,12 @@ and faster the input of a verification code you provided via mail/phone.
   s.author           = { 'Posix88' => 'ninomusolino@gmail.com' }
   s.source           = { :git => 'https://github.com/Posix88/FasterVerificationCode.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/NinoMusolino'
-  s.swift_version = '4.2'
+  s.swift_version = '5'
   s.ios.deployment_target = '10.0'
   
-  s.source_files = 'FasterVerificationCode/Classes/**/*'
+  s.source_files = 'Sources/FasterVerificationCode/**/*'
   s.resource_bundles = {
-	  'FasterVerificationCode' => ['FasterVerificationCode/Classes/*.xib']
+	  'FasterVerificationCode' => ['Sources/FasterVerificationCode/*.xib']
   }
   s.framework  = "UIKit"
   s.requires_arc = true
