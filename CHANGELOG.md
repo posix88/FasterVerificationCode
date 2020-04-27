@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 
+- None
+
+### Changed
+
+- None
+
+### Fixed
+
+- None
+
+## [0.4.0] The Cleaning Release 🧹
+
+### Added
+
 - Added function to clear the code manually when user needs it. Added by [@ramiroleandrodiaz](https://github.com/ramiroleandrodiaz)
 
 ### Changed

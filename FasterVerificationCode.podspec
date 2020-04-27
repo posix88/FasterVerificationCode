@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FasterVerificationCode'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = 'An high customizable and fast verification input view.'
 
 # This description is used to generate tags and improve search results.
