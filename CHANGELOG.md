@@ -8,11 +8,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 
-- None
+- Added function to clear the code manually when user needs it. Added by [@ramiroleandrodiaz](https://github.com/ramiroleandrodiaz)
 
 ### Changed
 
-- None
+- Now the function that handles the copied text also triggers "verificationCodeInserted" if applies. Added by [@ramiroleandrodiaz](https://github.com/ramiroleandrodiaz)
 
 ### Fixed
 
