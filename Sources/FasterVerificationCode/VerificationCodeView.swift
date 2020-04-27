@@ -130,6 +130,13 @@ open class VerificationCodeView: UIView
         calculateViewWidth()
         addLabelsToStackView()
     }
+    
+    /// Manually cleaning the code
+    public func clearCode() {
+        for label in labels {
+            label.text = ""
+        }
+    }
 
     private func addLabelsToStackView()
     {
@@ -274,6 +281,12 @@ extension VerificationCodeView: UITextFieldDelegate
 				return false
 			}
 		}
+        
+        // If the user pastes a code with 6 digits, we may want to trigger "Verification code inserted"
+        if string.count == numberOfLabel {
+            delegate?.verificationCodeInserted(string, isComplete: true)
+        }
+        
 		textField.text = ""
 		return true
 	}
