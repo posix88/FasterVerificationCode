@@ -138,6 +138,7 @@ open class VerificationCodeView: UIView
         }
         hiddenTextField.text = ""
         currentLabel = 0
+        openKeyboard()
     }
 
     private func addLabelsToStackView()
