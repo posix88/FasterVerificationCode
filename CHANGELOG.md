@@ -12,11 +12,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 
-- None
+- Now clearing the code clears also the textfield and set the current label to 0 so we can start writing again. Added by [@ramiroleandrodiaz](https://github.com/ramiroleandrodiaz)
 
 ### Fixed
 
-- None
+- Now the carrier animation adjusts to the font size. Added by [@ramiroleandrodiaz](https://github.com/ramiroleandrodiaz)
 
 ## [0.4.0] The Cleaning Release 🧹
 
