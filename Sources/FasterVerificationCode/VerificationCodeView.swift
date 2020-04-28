@@ -136,6 +136,8 @@ open class VerificationCodeView: UIView
         for label in labels {
             label.text = ""
         }
+        hiddenTextField.text = ""
+        currentLabel = 0
     }
 
     private func addLabelsToStackView()
