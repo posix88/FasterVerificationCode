@@ -12,6 +12,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 
+- None
+
+### Fixed
+
+- None
+
+## [0.4.1] The Broom-fix
+
+### Added
+
+- None
+
+### Changed
+
 - Now clearing the code clears also the textfield and set the current label to 0 so we can start writing again. Added by [@ramiroleandrodiaz](https://github.com/ramiroleandrodiaz)
 
 ### Fixed
