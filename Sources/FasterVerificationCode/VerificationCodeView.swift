@@ -136,14 +136,16 @@ open class VerificationCodeView: UIView
         for label in labels {
             label.text = ""
         }
+        hiddenTextField.text = ""
+        currentLabel = 0
+        openKeyboard()
     }
 
     private func addLabelsToStackView()
     {
         for _ in 1...numberOfLabel
         {
-			let label = VerificationCodeLabel(CGRect(x: 0, y: 0, width: labelWidth, height: self.frame.height), isBordered: labelHasBorder, borderColor: labelBorderColor, borderHeight: borderHeigth, tintColor: labelTintColor, backgroundColor: labelBackgroundColor)
-            label.font = labelFont
+			let label = VerificationCodeLabel(CGRect(x: 0, y: 0, width: labelWidth, height: self.frame.height), isBordered: labelHasBorder, borderColor: labelBorderColor, borderHeight: borderHeigth, tintColor: labelTintColor, backgroundColor: labelBackgroundColor, font: labelFont)
 			label.textColor = labelTextColor
             labelContainer.addArrangedSubview(label)
             labels.append(label)

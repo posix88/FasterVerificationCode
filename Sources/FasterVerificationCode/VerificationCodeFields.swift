@@ -31,7 +31,7 @@ open class VerificationCodeLabel: UILabel
         super.init(coder: aDecoder)
     }
 
-	public convenience init(_ frame: CGRect, isBordered: Bool, borderColor: UIColor, borderHeight: CGFloat, tintColor: UIColor, backgroundColor: UIColor = .white)
+    public convenience init(_ frame: CGRect, isBordered: Bool, borderColor: UIColor, borderHeight: CGFloat, tintColor: UIColor, backgroundColor: UIColor = .white, font: UIFont?)
     {
         self.init(frame: frame)
         self.heightAnchor.constraint(equalToConstant: frame.height).isActive = true
@@ -42,6 +42,7 @@ open class VerificationCodeLabel: UILabel
         self.isBordered = isBordered
 		self.borderHeight = borderHeight
 		self.borderColor = borderColor
+        self.font = font
         addCarrierView()
     }
 
