@@ -1,11 +1,30 @@
 # FasterVerificationCode
-An high customizable and fast verification code view
 
-[![Version](https://img.shields.io/cocoapods/v/FasterVerificationCode.svg?style=flat)](https://cocoapods.org/pods/FasterVerificationCode)
-[![SPM](https://img.shields.io/badge/spm-compatible-brightgreen.svg?style=flat)](https://github.com/apple/swift-package-manager)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/posix88/FasterVerificationCode/master/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/FasterVerificationCode.svg?style=flat)](https://cocoapods.org/pods/FasterVerificationCode)
-[![@Ninomusolino](https://img.shields.io/badge/contact-@Ninomusolino-blue.svg?style=flat)](https://twitter.com/Ninomusolino)
+<p align="center">
+    <a href="#">
+        <img src="https://img.shields.io/badge/swift-5.1-orange.svg" alt="Swift: 5.1">
+    </a>
+    <a href="https://github.com/posix88/FasterVerificationCode/releases">
+        <img src="https://img.shields.io/badge/version-0.4.1-blue.svg"
+        alt="Version: 0.4.1">
+    </a>
+    <a href="#">
+    <img src="https://img.shields.io/badge/Platforms-iOS-green.svg"
+        alt="Platforms: iOS">
+    </a>
+    <a href="https://github.com/piknotech/SFSafeSymbols/blob/stable/LICENSE.md">
+        <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License: MIT">
+    </a>
+    <br />
+    <a href="https://github.com/apple/swift-package-manager">
+        <img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg" alt="SwiftPM: Compatible">
+    </a>
+    <a href="https://cocoapods.org/pods/FasterVerificationCode">
+    <img src="https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat" alt="CocoaPods: Compatible">
+    </a>
+</p>
+
+An high customizable and fast verification code view
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/posix88/FasterVerificationCode/master/VerificationCodeView.gif" alt="Icon"/>
